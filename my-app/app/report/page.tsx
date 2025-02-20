@@ -206,8 +206,8 @@ export default function ReportPage() {
         }
         setUser(user);
         
-        const recentReports = await getRecentReports();
-        const formattedReports = recentReports.map(report => ({
+        const recentReports = await getRecentReports() as any;
+        const formattedReports = recentReports.map((report: any) => ({
           ...report,
           createdAt: report.createdAt.toISOString().split('T')[0]
         }));
@@ -220,7 +220,7 @@ export default function ReportPage() {
   }, [router]);
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-8 max-w-4xl mx-auto text-gray-800">
       <h1 className="text-3xl font-semibold mb-6 text-gray-800">Report waste</h1>
       
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-lg mb-12">
